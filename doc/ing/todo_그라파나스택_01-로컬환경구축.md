@@ -24,23 +24,25 @@ Docker Compose로 Grafana + Prometheus + Jaeger + Loki + OTel Collector를
 
 ### Docker Compose 작성
 
-- [ ] `docker-compose.yml` 파일 생성
+작업 디렉토리: `grafana-stack/`
+
+- [ ] `grafana-stack/docker-compose.yml` 파일 생성
 - [ ] Grafana 서비스 정의
 - [ ] Prometheus 서비스 정의
 - [ ] Jaeger (all-in-one) 서비스 정의
 - [ ] Loki 서비스 정의
 - [ ] OTel Collector 서비스 정의
-- [ ] OTel Collector 설정 파일 작성 (`otel-collector-config.yaml`)
+- [ ] OTel Collector 설정 파일 작성 (`grafana-stack/otel-collector-config.yaml`)
   - 수신: OTLP gRPC/HTTP
   - 트레이싱 → Jaeger 전송
   - 메트릭 → Prometheus 전송
   - 로그 → Loki 전송
-- [ ] Prometheus 설정 파일 작성 (`prometheus.yml`)
+- [ ] Prometheus 설정 파일 작성 (`grafana-stack/prometheus.yml`)
   - OTel Collector 메트릭 스크랩 설정
 
 ### 기동 및 접속 확인
 
-- [ ] `docker compose up -d` 실행
+- [ ] `cd grafana-stack && docker compose up -d` 실행
 - [ ] 전체 컨테이너 정상 기동 확인 (`docker compose ps`)
 - [ ] Jaeger UI 접속 확인 (http://localhost:16686)
 - [ ] Grafana UI 접속 확인 (http://localhost:3000)
