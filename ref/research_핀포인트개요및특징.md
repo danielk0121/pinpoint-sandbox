@@ -119,7 +119,27 @@ RPC 호출 헤더에 추적 태그를 심어 서비스 간 요청 흐름을 end-
 
 ---
 
-## 7. 지원 플러그인 (주요)
+## 7. 지원 언어
+
+Pinpoint는 Java 외에도 여러 언어용 에이전트를 별도 저장소로 관리한다.
+
+- **Java** — 메인 에이전트. 가장 성숙하고 플러그인 수도 가장 많음. 실질적으로 Pinpoint의 주력 언어
+- **PHP / Python** — `pinpoint-c-agent` (C++ 구현체)로 지원. PHP가 주력이고 Python도 포함
+- **Node.js** — `pinpoint-node-agent`, 별도 저장소로 활발히 유지 중
+- **Go** — `pinpoint-go-agent`, 별도 저장소로 제공
+- **C++** — `pinpoint-cpp-agent`, 개발 초기 단계
+
+> Java 이외 언어는 기능 커버리지와 성숙도가 상대적으로 낮다. 네이버 내부도 Java 백엔드 중심이므로 Java 환경에서 가장 검증된 사용 방식이다.
+
+에이전트별 저장소:
+- https://github.com/pinpoint-apm/pinpoint (Java)
+- https://github.com/pinpoint-apm/pinpoint-c-agent (PHP/Python)
+- https://github.com/pinpoint-apm/pinpoint-node-agent (Node.js)
+- https://github.com/pinpoint-apm/pinpoint-go-agent (Go)
+
+---
+
+## 8. 지원 플러그인 (주요)
 
 - 웹 프레임워크: Spring MVC, Spring Boot, Spring WebFlux
 - WAS: Tomcat, Jetty, Netty, Undertow
