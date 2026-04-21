@@ -22,6 +22,8 @@
 | 도구 | 개발사 / 국가 | 시작 | 비용 | 클라우드 무료 | 셀프호스팅 | 지원 언어 | 인기도 | OTel |
 |------|--------------|------|------|--------------|-----------|-----------|--------|------|
 | **Datadog** | Datadog Inc. / 미국 | 2010 | 무료 티어(5 호스트). APM $31~/호스트/월 | 14일 트라이얼 + 무료 티어 | 불가 (SaaS) | Java, Go, Python, Node.js, Ruby, .NET, PHP, C++ | 매우 높음. 점유율 ~52%(1위). 고객 30k+. 매출 $3.3B | ○ |
+| **Dynatrace** | Dynatrace Inc. / 미국 (오스트리아 창립) | 2005 | 엔터프라이즈 라이선스 (문의). 15일 트라이얼 | 15일 트라이얼 | 불가 (SaaS + 엔터프라이즈 온프레미스 협의) | Java, Go, Python, Node.js, Ruby, .NET, PHP 등 전 언어 | 매우 높음. Gartner APM 부문 수년 연속 리더. Datadog/New Relic과 함께 상용 빅3 | ○ |
+| **SigNoz** | SigNoz Inc. / 미국 (인도 창립) | 2021 | 오픈소스 무료. Cloud $199~/월 | 무료 플랜 | ⭐⭐ Docker Compose | OTel SDK 경유 전 언어 | 중상. GitHub ★20k+. 오픈소스 OTel 네이티브 APM 중 성장 1위 | ◎ |
 | **Jaeger** | CNCF 오픈소스 (Uber 시작) / 미국 | 2015 | 완전 무료 | 해당 없음 | ⭐ Docker 단일 컨테이너 | OTel SDK 경유 전 언어 | 높음. GitHub ★22k. CNCF Graduated | ◎ |
 | **Grafana Tempo** | Grafana Labs / 미국 | 2020 | 오픈소스 무료. Cloud 50GB/월 무료 | 영구 무료 플랜 | ⭐⭐ Prometheus + Grafana 스택 | OTel SDK 경유 전 언어 | 중상. GitHub ★5k. 설문 Grafana+Prometheus 43% | ◎ |
 | **Pinpoint** | 네이버 (오픈소스) / 한국 | 2015 | 완전 무료. Naver Cloud는 유료 | Naver Cloud 체험 (요금 확인 필요) | ⭐⭐⭐ HBase + ZooKeeper 구성 | Java (주력), PHP, Python, Node.js, Go | 중간. GitHub ★14k. 일 200억 건 처리 | ✕ |
@@ -32,6 +34,7 @@
 
 | 도구 | 개발사 / 국가 | 시작 | 비용 | 클라우드 무료 | 셀프호스팅 | 지원 언어 | 인기도 | OTel |
 |------|--------------|------|------|--------------|-----------|-----------|--------|------|
+| **AppDynamics** | Cisco (2008 창립, 2017 인수) / 미국 | 2008 | 엔터프라이즈 라이선스 (문의). 무료 플랜 없음 | 15일 트라이얼 | 불가 (SaaS + 엔터프라이즈 온프레미스 협의) | Java, Go, Python, Node.js, Ruby, .NET, PHP, C++ | 중상. 엔터프라이즈 Java/.NET 환경에서 오래된 인지도. Cisco Splunk와 통합 방향 | △ |
 | **Instana** | IBM (2015 창립, 2021 인수) / 독일→미국 | 2015 | $75~/호스트/월. 무료 플랜 없음 | 14일 트라이얼 | 불가 (엔터프라이즈 온프레미스 협의) | Java, Go, Python, Node.js, Ruby, PHP, .NET 등 14개 | 중간. IBM 엔터프라이즈 중심. ~3% | ○ |
 | **Lightstep** | ServiceNow (2015 창립, 2023 인수) / 미국 | 2015 | 무료 플랜(소규모). 유료 ~$100~/월 | 무료 플랜 | 불가 (SaaS) | OTel SDK 경유 전 언어 | 중간. OTel 창시자 설립, 인수 후 입지 약화 | ◎ |
 | **Uptrace** | 오픈소스 프로젝트 / - | 2021 | 오픈소스 무료. Cloud ~$5/백만 스팬 | 무료 플랜 | ⭐ Docker Compose | OTel SDK 경유 전 언어 | 낮음. GitHub ★4k | ◎ |
@@ -45,8 +48,8 @@
 
 ## 인기도 수치 요약
 
-- 상용 APM 시장 점유율: Datadog ~52% > New Relic ~24% > Instana/Dynatrace ~3%
-- GitHub ★: Sentry 43k > Jaeger 22k > Pinpoint 14k > Grafana Tempo 5k > Uptrace 4k > Scouter 2k
+- 상용 APM 시장 점유율: Datadog ~52% > New Relic ~24% > Dynatrace/Instana ~3% (Gartner 기준 빅3: Datadog, New Relic, Dynatrace)
+- GitHub ★: Sentry 43k > Jaeger 22k > SigNoz 20k+ > Pinpoint 14k > Grafana Tempo 5k > Uptrace 4k > Scouter 2k
 - 개발자 설문 (Stack Overflow 2025): Grafana+Prometheus 43% > Sentry 32% > New Relic 13%
 
 ---
@@ -181,3 +184,32 @@ Grafana에서 TraceID로 트레이스와 로그를 연결해서 조회 가능:
 
 Tempo는 "Grafana 생태계 안에서 트레이싱까지 한 번에"가 목적이나, 트레이싱 전문성은 Jaeger가 위.
 Grafana는 Jaeger를 데이터소스로 직접 지원하므로 Tempo 없이도 동일한 통합 대시보드 구성 가능.
+
+---
+
+## SigNoz vs Grafana+Jaeger 스택 비교
+
+두 선택지 모두 오픈소스 + 셀프호스팅 + OTel 네이티브 + 트레이스/메트릭/로그 통합이라는 같은 목적을 가진다.
+
+### SigNoz
+
+- 구성: 단일 애플리케이션 (ClickHouse 기반 백엔드 + 자체 UI)
+- 설치: Docker Compose 한 번으로 전체 스택 기동
+- 트레이스 + 메트릭 + 로그를 하나의 UI에서 통합 조회
+- OTel 네이티브 설계 — SDK 연동 외 별도 에이전트 불필요
+- 단점: ClickHouse 운영 필요, Grafana만큼 대시보드 유연성 낮음, 커뮤니티 규모가 Grafana 대비 작음
+
+### Grafana + Jaeger + Prometheus + Loki 스택
+
+- 구성: 4개 컴포넌트 각각 설치/운영 (Grafana, Jaeger, Prometheus, Loki)
+- 트레이스(Jaeger), 메트릭(Prometheus), 로그(Loki)를 Grafana에서 데이터소스로 통합
+- 각 컴포넌트가 업계 표준 수준의 성숙도 — 레퍼런스/플러그인 생태계 압도적
+- 대시보드 유연성 최고 (Grafana)
+- 단점: 컴포넌트가 많아 초기 구성/유지보수 복잡도 높음
+
+### 비교 요약
+
+- **간편하게 시작하고 싶다** → SigNoz (Docker Compose 하나로 끝)
+- **유연성/생태계/레퍼런스가 중요하다** → Grafana+Jaeger 스택
+- **학습 목적으로 각 컴포넌트를 이해하고 싶다** → Grafana+Jaeger 스택 (각 역할이 명확히 분리됨)
+- **운영 환경에서 빠르게 도입하고 싶다** → SigNoz (관리 포인트 적음)
