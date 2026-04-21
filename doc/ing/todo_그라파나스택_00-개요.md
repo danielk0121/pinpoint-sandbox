@@ -26,12 +26,15 @@ Grafana
 
 ### 1단계: 로컬 셀프 호스팅 구축
 
-- [ ] Docker Compose 파일 작성 (Grafana, Prometheus, Jaeger, Loki, OTel Collector)
+- [x] Docker Compose 파일 작성 (Grafana, Prometheus, Jaeger, Loki, OTel Collector)
+- [x] OTel Collector 설정 파일 작성
+- [x] Prometheus 설정 파일 작성
+- [x] Grafana 데이터소스 프로비저닝 설정
 - [ ] 각 컴포넌트 기동 확인
   - [ ] Jaeger UI 접속 확인
   - [ ] Grafana UI 접속 확인
   - [ ] Prometheus UI 접속 확인
-- [ ] Grafana 데이터소스 연결 (Jaeger, Prometheus, Loki)
+- [ ] Grafana 데이터소스 연결 테스트 (Jaeger, Prometheus, Loki)
 
 ### 2단계: Java 샘플 앱 연동
 

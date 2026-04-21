@@ -26,19 +26,20 @@ Docker Compose로 Grafana + Prometheus + Jaeger + Loki + OTel Collector를
 
 작업 디렉토리: `grafana-stack/`
 
-- [ ] `grafana-stack/docker-compose.yml` 파일 생성
-- [ ] Grafana 서비스 정의
-- [ ] Prometheus 서비스 정의
-- [ ] Jaeger (all-in-one) 서비스 정의
-- [ ] Loki 서비스 정의
-- [ ] OTel Collector 서비스 정의
-- [ ] OTel Collector 설정 파일 작성 (`grafana-stack/otel-collector-config.yaml`)
+- [x] `grafana-stack/docker-compose.yml` 파일 생성
+- [x] Grafana 서비스 정의
+- [x] Prometheus 서비스 정의
+- [x] Jaeger (all-in-one) 서비스 정의
+- [x] Loki 서비스 정의
+- [x] OTel Collector 서비스 정의
+- [x] OTel Collector 설정 파일 작성 (`grafana-stack/otel-collector-config.yaml`)
   - 수신: OTLP gRPC/HTTP
   - 트레이싱 → Jaeger 전송
   - 메트릭 → Prometheus 전송
   - 로그 → Loki 전송
-- [ ] Prometheus 설정 파일 작성 (`grafana-stack/prometheus.yml`)
+- [x] Prometheus 설정 파일 작성 (`grafana-stack/prometheus.yml`)
   - OTel Collector 메트릭 스크랩 설정
+- [x] Grafana 데이터소스 프로비저닝 파일 작성 (`grafana-stack/grafana/provisioning/datasources/datasources.yaml`)
 
 ### 기동 및 접속 확인
 
@@ -51,10 +52,10 @@ Docker Compose로 Grafana + Prometheus + Jaeger + Loki + OTel Collector를
 
 ### Grafana 데이터소스 연결
 
-- [ ] Jaeger 데이터소스 추가
-- [ ] Prometheus 데이터소스 추가
-- [ ] Loki 데이터소스 추가
-- [ ] 각 데이터소스 연결 테스트 (Test & Save)
+- [x] Jaeger 데이터소스 추가 (프로비저닝으로 자동 설정)
+- [x] Prometheus 데이터소스 추가 (프로비저닝으로 자동 설정)
+- [x] Loki 데이터소스 추가 (프로비저닝으로 자동 설정)
+- [ ] 각 데이터소스 연결 테스트 (Test & Save) — 기동 후 확인 필요
 
 ---
 
@@ -63,3 +64,5 @@ Docker Compose로 Grafana + Prometheus + Jaeger + Loki + OTel Collector를
 - Jaeger all-in-one 이미지: `jaegertracing/all-in-one`
 - Loki 이미지: `grafana/loki`
 - OTel Collector 이미지: `otel/opentelemetry-collector-contrib`
+- Grafana 기본 계정: admin / admin (GF_SECURITY_ADMIN_PASSWORD로 변경 가능)
+- 데이터소스는 `grafana/provisioning/datasources/datasources.yaml`로 자동 프로비저닝됨
