@@ -55,3 +55,27 @@
 - 상용 APM 시장 점유율: Datadog ~52% > New Relic ~24% > Instana/Dynatrace ~3%
 - GitHub ★: Sentry 43k > Jaeger 22k > Pinpoint 14k > Grafana Tempo 5k > Uptrace 4k > Scouter 2k
 - 개발자 설문 (Stack Overflow 2025): Grafana+Prometheus 43% > Sentry 32% > New Relic 13%
+
+---
+
+## APM 추천 (Java/Go 중심, 셀프호스팅 또는 클라우드 무료 기준)
+
+조건: PC 셀프호스팅 또는 클라우드 무료 티어, Java/Go 필수, Node/Python 선택, 업계 인지도 우선
+
+### 1순위: New Relic
+- Java, Go 완벽 지원
+- 영구 무료 플랜 (100GB/월)
+- 업계 인지도 2위 (~24%)
+- 셀프호스팅 불필요, 바로 시작 가능
+
+### 2순위: Grafana Tempo (+ Prometheus 스택)
+- Java, Go, Node.js, Python 모두 OTel 경유 지원
+- 클라우드 무료 50GB/월 또는 PC 셀프호스팅 가능
+- 개발자 설문 1위 (43%)
+- 단점: 구성 복잡도 있음
+
+### 3순위: Jaeger
+- PC 셀프호스팅 가장 쉬움 (Docker 단일 컨테이너)
+- Java, Go OTel 경유 지원
+- GitHub ★22k, CNCF Graduated
+- 단점: 클라우드 무료 없음, 시각화 도구 별도 필요 (Grafana 등)
