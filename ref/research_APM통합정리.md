@@ -74,3 +74,81 @@
 - Java, Go OTel 경유 지원
 - GitHub ★22k, CNCF Graduated
 - 단점: 트레이싱 전용 (메트릭/로그 없음), 시각화 도구 별도 필요 (Grafana 등)
+
+---
+
+## Jaeger 특징 및 규모 확장
+
+### Jaeger가 제공하는 것
+- 트레이스 수집 (Collector)
+- 트레이스 저장 (외부 스토리지 연동)
+- 트레이스 조회 UI
+
+### Jaeger가 없는 것
+- 메트릭 (CPU, 메모리, JVM 등)
+- 로그
+- 대시보드/알림
+
+### 규모 확장 단계
+
+**1단계 — 소규모 (시작)**
+- all-in-one 단일 컨테이너로 운영
+- 인메모리 저장소 사용
+
+**2단계 — 저장소 교체 (가장 먼저)**
+- Elasticsearch / OpenSearch — 가장 많이 쓰임, 검색 성능 우수
+- Cassandra — 대용량 쓰기에 강함, 클러스터 확장 용이
+- Kafka (버퍼) — 트래픽 폭증 시 수집 버퍼로 앞단에 추가
+
+**3단계 — 컴포넌트 분리 (중규모)**
+- `jaeger-collector` — 트레이스 수집 전담, 수평 확장 가능
+- `jaeger-query` — UI/API 전담
+- `jaeger-agent` 또는 OTel Collector — 각 WAS 사이드카
+
+**4단계 — OTel Collector 도입 (권장)**
+- WAS → OTel Collector → Jaeger Collector 구조
+- 수집 파이프라인을 Jaeger와 분리
+- 백엔드를 Grafana Tempo 등으로 교체해도 앱 코드 변경 없음
+- 필터링/샘플링/라우팅 로직을 Collector에서 처리
+
+### 샘플링 전략
+- 소규모: const 샘플링 (100% 수집)
+- 중규모: probabilistic 샘플링 (예: 10%)
+- 대규모: adaptive 샘플링 — 트래픽에 따라 자동 조절
+
+### Jaeger 한계 및 전환 시점
+트레이싱 전용이라 규모가 커지면 풀 APM 스택으로 전환 고려:
+- Grafana Tempo + Prometheus + Loki 스택 (OTel 경유라 마이그레이션 용이)
+- 또는 New Relic / Datadog 유료 전환
+
+---
+
+## 통합 세트 APM 비교
+
+Jaeger는 트레이싱만 담당하며 메트릭/로그/시각화는 별도 조합 필요.
+아래는 트레이스+메트릭+로그+시각화를 통합 제공하는 APM 목록.
+
+### Grafana Stack (오픈소스, 셀프호스팅 가능)
+- 구성: Tempo(트레이스) + Prometheus(메트릭) + Loki(로그) + Grafana(시각화)
+- 셀프호스팅 가능, 클라우드 무료 플랜 있음
+- 업계 표준에 가까움 (개발자 설문 43%)
+- 단점: 컴포넌트를 직접 조합해야 함
+
+### Elastic APM (오픈소스, 셀프호스팅 가능)
+- 구성: APM Server + Elasticsearch + Kibana — Docker Compose로 한 번에 구성
+- Java, Go, Node.js, Python 등 지원
+- 단점: 메모리 요구량 높음 (Elasticsearch)
+
+### Pinpoint (오픈소스, 셀프호스팅)
+- 트레이스 + 메트릭 + 시각화 일체형
+- Java 주력, Go/Python/Node.js 제한적 지원
+- 단점: HBase + ZooKeeper 구성 필요, 셀프호스팅 난이도 높음
+
+### New Relic (SaaS)
+- 모두 포함된 SaaS, 설치 없음
+- 영구 무료 플랜 (100GB/월)
+- 단점: 셀프호스팅 불가
+
+### Datadog (SaaS)
+- 모두 포함된 SaaS, 업계 점유율 1위 (~52%)
+- 단점: 셀프호스팅 불가, 규모 커지면 비용 높음
