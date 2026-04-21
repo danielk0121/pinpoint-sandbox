@@ -25,6 +25,13 @@
 | **Jaeger** | CNCF 오픈소스 (Uber 시작) / 미국 | 2015 | 완전 무료 | 해당 없음 | ⭐ Docker 단일 컨테이너 | OTel SDK 경유 전 언어 | 높음. GitHub ★22k. CNCF Graduated | ◎ |
 | **Grafana Tempo** | Grafana Labs / 미국 | 2020 | 오픈소스 무료. Cloud 50GB/월 무료 | 영구 무료 플랜 | ⭐⭐ Prometheus + Grafana 스택 | OTel SDK 경유 전 언어 | 중상. GitHub ★5k. 설문 Grafana+Prometheus 43% | ◎ |
 | **Pinpoint** | 네이버 (오픈소스) / 한국 | 2015 | 완전 무료. Naver Cloud는 유료 | Naver Cloud 체험 (요금 확인 필요) | ⭐⭐⭐ HBase + ZooKeeper 구성 | Java (주력), PHP, Python, Node.js, Go | 중간. GitHub ★14k. 일 200억 건 처리 | ✕ |
+
+---
+
+## 관심 없는 것들
+
+| 도구 | 개발사 / 국가 | 시작 | 비용 | 클라우드 무료 | 셀프호스팅 | 지원 언어 | 인기도 | OTel |
+|------|--------------|------|------|--------------|-----------|-----------|--------|------|
 | **Instana** | IBM (2015 창립, 2021 인수) / 독일→미국 | 2015 | $75~/호스트/월. 무료 플랜 없음 | 14일 트라이얼 | 불가 (엔터프라이즈 온프레미스 협의) | Java, Go, Python, Node.js, Ruby, PHP, .NET 등 14개 | 중간. IBM 엔터프라이즈 중심. ~3% | ○ |
 | **Lightstep** | ServiceNow (2015 창립, 2023 인수) / 미국 | 2015 | 무료 플랜(소규모). 유료 ~$100~/월 | 무료 플랜 | 불가 (SaaS) | OTel SDK 경유 전 언어 | 중간. OTel 창시자 설립, 인수 후 입지 약화 | ◎ |
 | **Uptrace** | 오픈소스 프로젝트 / - | 2021 | 오픈소스 무료. Cloud ~$5/백만 스팬 | 무료 플랜 | ⭐ Docker Compose | OTel SDK 경유 전 언어 | 낮음. GitHub ★4k | ◎ |
@@ -32,14 +39,7 @@
 | **Helios** | Helios / 이스라엘 | 2021 | 무료 플랜. 유료 $99~/월 | 무료 플랜 | 불가 (SaaS) | OTel SDK 경유 (Java, Node.js, Python, Go 등) | 낮음. 소규모 스타트업 | ○ |
 | **Aspecto** | Aspecto / 이스라엘 | 2020 | 무료 플랜. 유료 $49~/월 | 무료 플랜 | 불가 (SaaS) | OTel SDK 경유 (Java, Node.js, Python, Go 등) | 낮음. 소규모 스타트업 | ○ |
 | **Last9** | Last9 / 인도 | 2021 | 유료 (플랜별 문의) | 트라이얼 제공 | 불가 (SaaS) | OTel SDK 경유 전 언어 | 낮음. 신생 스타트업 | ○ |
-
----
-
-## 관심 없는 것들
-
-| 도구 | 개발사 / 국가 | 비고 |
-|------|--------------|------|
-| **AppSignal** | AppSignal / 네덜란드 | 소규모 팀 대상 간단한 APM. $19~/월 |
+| **AppSignal** | AppSignal / 네덜란드 | - | $19~/월 | 해당 없음 | 불가 (SaaS) | Ruby, Elixir, Node.js, Python, JS | 낮음. 소규모 팀 대상 | - |
 
 ---
 
